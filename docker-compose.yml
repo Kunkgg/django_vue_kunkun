@@ -1,0 +1,18 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: kun_django_backend
+    volumes:
+      - ./backend:/app
+    ports:
+      - "18001:8000"
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: kunk_vue_frontend
+    container_name: app-frontend
+    ports:
+      - "18002:80"
+    restart: always
